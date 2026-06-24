@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jacky Dev | Backend & Automation Developer</title>
+  <meta name="description" content="Backend automation portfolio for API integrations, Discord bots, Node.js scripts, and clean project delivery." />
+  <meta name="keywords" content="backend developer, automation developer, Discord bot, Node.js, Express.js, MongoDB, API integration, developer portfolio" />
+  <meta name="author" content="Jacky" />
+  <meta name="theme-color" content="#00BCD4" />
+  <meta property="og:title" content="Jacky Dev | Backend & Automation Developer" />
+  <meta property="og:description" content="Backend systems, automation scripts, Discord bots, API integrations, and clean project delivery." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <style>
+    :root {
+      --black: #000000;
+      --dark-bg: #1A1A1A;
+      --cyan: #00BCD4;
+      --white: #FFFFFF;
+      --radius-card: 8px;
+      --font-dev: 'JetBrains Mono', 'Cascadia Code', 'Fira Code', Consolas, monospace;
+      --light-grey: #E0E0E0;
+      --charcoal: #333333;
+      --muted: #9EA7AA;
+      --card: #101010;
+      --card-soft: #161616;
+      --border: rgba(224, 224, 224, 0.12);
+      --cyan-soft: rgba(0, 188, 212, 0.13);
+      --shadow-card: 0 2px 10px rgba(0, 0, 0, 0.3);
+      --shadow-glow: 0 0 42px rgba(0, 188, 212, 0.16);
+      --max-width: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(0, 188, 212, 0.20), transparent 28rem),
+        radial-gradient(circle at 84% 22%, rgba(0, 188, 212, 0.10), transparent 24rem),
+        linear-gradient(180deg, var(--black) 0%, var(--dark-bg) 42%, #111111 100%);
+      color: var(--white);
+      font-family: var(--font-dev);
+      line-height: 1.6;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 78%);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a,
+    .cursor-pointer {
+      cursor: pointer;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 2px solid var(--cyan);
+      outline-offset: 4px;
+    }
+
+    .transition-all {
+      transition: all 220ms ease;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.72);
+      backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 74px;
+      gap: 20px;
+    }
+
+    .logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+    }
+
+    .logo-mark {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      color: var(--black);
+      background: var(--cyan);
+      border-radius: var(--radius-card);
+      box-shadow: 0 0 22px rgba(0, 188, 212, 0.35);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      color: var(--light-grey);
+      font-size: 0.86rem;
+    }
+
+    .nav-link,
+    .project-link,
+    .footer-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+    }
+
+    .nav-link::after,
+    .project-link::after,
+    .footer-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 100%;
+      height: 1px;
+      background: var(--cyan);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 220ms ease;
+    }
+
+    .nav-link:hover,
+    .project-link:hover,
+    .footer-link:hover {
+      color: var(--cyan);
+    }
+
+    .nav-link:hover::after,
+    .project-link:hover::after,
+    .footer-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 12px 18px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      color: var(--white);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: var(--shadow-card);
+      font: 800 0.9rem/1 var(--font-dev);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      border-color: var(--cyan);
+      box-shadow: var(--shadow-glow);
+    }
+
+    .button-primary {
+      color: var(--black);
+      background: var(--cyan);
+      border-color: var(--cyan);
+    }
+
+    .button-primary:hover {
+      color: var(--black);
+      background: #33d7e8;
+    }
+
+    .section {
+      padding: 92px 0;
+      position: relative;
+    }
+
+    .hero {
+      min-height: calc(100vh - 74px);
+      display: grid;
+      align-items: center;
+      padding: 72px 0 92px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(340px, 0.86fr);
+      gap: 54px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 20px;
+      color: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 36px;
+      height: 1px;
+      background: var(--cyan);
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 12ch;
+      margin-bottom: 22px;
+      font-size: clamp(3.1rem, 7.4vw, 6.9rem);
+      line-height: 0.88;
+      letter-spacing: -0.095em;
+    }
+
+    h2 {
+      margin-bottom: 16px;
+      font-size: clamp(2rem, 4vw, 3.45rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .accent {
+      color: var(--cyan);
+    }
+
+    .hero-copy,
+    .section-copy {
+      max-width: 680px;
+      color: var(--light-grey);
+      font-size: 1rem;
+    }
+
+    .hero-copy {
+      margin-bottom: 28px;
+      font-size: 1.08rem;
+    }
+
+    .hero-actions,
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hero-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 10px;
+      max-width: 610px;
+      margin-top: 30px;
+    }
+
+    .metric {
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--cyan);
+      font-size: 1.14rem;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.75rem;
+    }
+
+    .code-orb {
+      position: relative;
+      min-height: 500px;
+      perspective: 1200px;
+    }
+
+    .terminal-card {
+      position: absolute;
+      inset: 54px 0 auto auto;
+      width: min(100%, 430px);
+      padding: 18px;
+      border: 1px solid rgba(0, 188, 212, 0.35);
+      border-radius: var(--radius-card);
+      background: linear-gradient(145deg, rgba(0, 0, 0, 0.94), rgba(26, 26, 26, 0.92));
+      box-shadow: 0 34px 90px rgba(0, 0, 0, 0.45), var(--shadow-glow);
+      transform: rotateX(10deg) rotateY(-13deg) rotateZ(1deg);
+      animation: floatCard 5s ease-in-out infinite;
+    }
+
+    .terminal-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.76rem;
+    }
+
+    .terminal-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .terminal-dots span {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--charcoal);
+    }
+
+    .terminal-dots span:nth-child(2) {
+      background: var(--cyan);
+    }
+
+    .code-line {
+      display: block;
+      margin: 10px 0;
+      color: var(--light-grey);
+      font-size: 0.86rem;
+      white-space: nowrap;
+    }
+
+    .code-line .cyan {
+      color: var(--cyan);
+    }
+
+    .code-line .muted {
+      color: var(--muted);
+    }
+
+    .floating-chip {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid rgba(0, 188, 212, 0.32);
+      border-radius: var(--radius-card);
+      background: rgba(0, 0, 0, 0.75);
+      color: var(--light-grey);
+      box-shadow: var(--shadow-card);
+      font-size: 0.76rem;
+    }
+
+    .chip-a {
+      top: 22px;
+      right: 36px;
+    }
+
+    .chip-b {
+      left: 20px;
+      bottom: 80px;
+    }
+
+    .chip-c {
+      right: 72px;
+      bottom: 22px;
+    }
+
+    .orb-ring {
+      position: absolute;
+      inset: 84px 32px 42px 34px;
+      border: 1px solid rgba(0, 188, 212, 0.16);
+      border-radius: 38px;
+      transform: rotate(-9deg);
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: rotateX(10deg) rotateY(-13deg) rotateZ(1deg) translateY(0); }
+      50% { transform: rotateX(12deg) rotateY(-9deg) rotateZ(1deg) translateY(-14px); }
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(280px, 0.52fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      position: relative;
+      padding: 24px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.018)), var(--card);
+      box-shadow: var(--shadow-card);
+    }
+
+    .card:hover {
+      transform: translateY(-4px) scale(1.01);
+      border-color: rgba(0, 188, 212, 0.55);
+      box-shadow: var(--shadow-glow), var(--shadow-card);
+    }
+
+    .icon-box {
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      margin-bottom: 20px;
+      color: var(--cyan);
+      background: var(--cyan-soft);
+      border: 1px solid rgba(0, 188, 212, 0.22);
+      border-radius: var(--radius-card);
+    }
+
+    .icon-box svg,
+    .button svg,
+    .social-link svg,
+    .logo-mark svg {
+      width: 20px;
+      height: 20px;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      fill: none;
+    }
+
+    .card p,
+    .project-card p,
+    .price-card p,
+    .testimonial-card p,
+    .experience-item p {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .bio-panel {
+      position: sticky;
+      top: 98px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      background: linear-gradient(180deg, rgba(0, 188, 212, 0.10), rgba(255, 255, 255, 0.025)), var(--black);
+      box-shadow: var(--shadow-card);
+    }
+
+    .bio-panel p {
+      color: var(--light-grey);
+    }
+
+    .stack-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 7px 10px;
+      border: 1px solid rgba(0, 188, 212, 0.32);
+      border-radius: 999px;
+      color: var(--light-grey);
+      background: rgba(0, 188, 212, 0.06);
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      background: var(--card-soft);
+      box-shadow: var(--shadow-card);
+    }
+
+    .project-card:hover {
+      transform: translateX(3px) scale(1.005);
+      border-color: rgba(0, 188, 212, 0.5);
+    }
+
+    .project-index {
+      color: var(--cyan);
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 0.92fr 1.08fr;
+      gap: 16px;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .experience-item {
+      padding: 20px;
+      border-left: 2px solid var(--cyan);
+      border-radius: 0 var(--radius-card) var(--radius-card) 0;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .testimonial-grid,
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .testimonial-card,
+    .price-card {
+      padding: 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      background: var(--card);
+      box-shadow: var(--shadow-card);
+    }
+
+    .testimonial-card:hover,
+    .price-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0, 188, 212, 0.48);
+    }
+
+    .quote-mark {
+      color: var(--cyan);
+      font-size: 2rem;
+      line-height: 1;
+    }
+
+    .price-card.featured {
+      border-color: var(--cyan);
+      background: linear-gradient(180deg, rgba(0, 188, 212, 0.13), rgba(255, 255, 255, 0.025)), var(--black);
+      box-shadow: var(--shadow-glow), var(--shadow-card);
+      transform: translateY(-8px);
+    }
+
+    .price {
+      margin: 16px 0;
+      color: var(--white);
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+    }
+
+    .price span {
+      color: var(--muted);
+      font-size: 0.86rem;
+      letter-spacing: 0;
+    }
+
+    .custom-price {
+      font-size: clamp(1.75rem, 4vw, 2.2rem);
+      letter-spacing: -0.08em;
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 10px;
+      padding: 0;
+      margin: 18px 0 22px;
+      color: var(--light-grey);
+      list-style: none;
+      font-size: 0.88rem;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .feature-list li::before {
+      content: "";
+      flex: 0 0 7px;
+      width: 7px;
+      height: 7px;
+      margin-top: 9px;
+      border-radius: 50%;
+      background: var(--cyan);
+    }
+
+    .final-cta {
+      padding: 48px;
+      border: 1px solid rgba(0, 188, 212, 0.38);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(135deg, rgba(0, 188, 212, 0.18), rgba(255, 255, 255, 0.025)),
+        var(--black);
+      box-shadow: var(--shadow-glow), var(--shadow-card);
+    }
+
+    .final-cta-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .footer {
+      padding: 54px 0 34px;
+      border-top: 1px solid var(--border);
+      background: var(--black);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.1fr repeat(3, minmax(130px, 0.45fr));
+      gap: 32px;
+      margin-bottom: 34px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .footer h3 {
+      color: var(--white);
+      font-size: 0.88rem;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .social-link {
+      display: grid;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      color: var(--light-grey);
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .social-link:hover {
+      color: var(--black);
+      background: var(--cyan);
+      border-color: var(--cyan);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: 980px) {
+      .nav-links {
+        display: none;
+      }
+
+      .hero-grid,
+      .section-head,
+      .split-layout,
+      .experience-grid,
+      .final-cta-inner,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bio-panel {
+        position: relative;
+        top: auto;
+      }
+
+      .card-grid,
+      .testimonial-grid,
+      .pricing-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .price-card.featured {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        width: min(100% - 22px, var(--max-width));
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .hero {
+        padding: 46px 0 70px;
+      }
+
+      .hero-grid,
+      .card-grid,
+      .testimonial-grid,
+      .pricing-grid,
+      .hero-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions,
+      .cta-row,
+      .button {
+        width: 100%;
+      }
+
+      .code-orb {
+        min-height: 420px;
+      }
+
+      .terminal-card {
+        inset: 48px 0 auto 0;
+        width: 100%;
+        transform: none;
+      }
+
+      .code-line {
+        white-space: normal;
+      }
+
+      .floating-chip {
+        position: relative;
+        inset: auto;
+        margin: 8px 8px 0 0;
+      }
+
+      .orb-ring {
+        display: none;
+      }
+
+      .project-card {
+        grid-template-columns: 1fr;
+      }
+
+      .final-cta {
+        padding: 28px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 1ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a class="logo transition-all cursor-pointer" href="#top" aria-label="Jacky Dev home">
+        <span class="logo-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M8 9 4 12l4 3"/><path d="m16 9 4 3-4 3"/><path d="m14 5-4 14"/></svg>
+        </span>
+        JACKY.DEV
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a class="nav-link transition-all cursor-pointer" href="#features">Services</a>
+        <a class="nav-link transition-all cursor-pointer" href="#projects">Projects</a>
+        <a class="nav-link transition-all cursor-pointer" href="#experience">Experience</a>
+        <a class="nav-link transition-all cursor-pointer" href="#pricing">Pricing</a>
+        <a class="nav-link transition-all cursor-pointer" href="#contact">Contact</a>
+      </nav>
+      <a class="button button-primary transition-all cursor-pointer" href="#contact">Hire Me</a>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <p class="eyebrow">Backend automation portfolio</p>
+          <h1>Backend tools that ship fast<span class="accent">.</span></h1>
+          <p class="hero-copy">
+            I build focused backend systems, automation scripts, Discord bots, and API integrations for clients who need clean execution instead of unnecessary complexity.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary transition-all cursor-pointer" href="#pricing">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              View Services
+            </a>
+            <a class="button transition-all cursor-pointer" href="#projects">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
+              See Projects
+            </a>
+          </div>
+          <div class="hero-metrics" aria-label="Quick stats">
+            <div class="metric"><strong>Node.js</strong><span>backend runtime</span></div>
+            <div class="metric"><strong>APIs</strong><span>integrations and webhooks</span></div>
+            <div class="metric"><strong>Discord.js</strong><span>bots and automation</span></div>
+          </div>
+        </div>
+
+        <div class="code-orb" aria-label="Abstract terminal visual">
+          <div class="orb-ring" aria-hidden="true"></div>
+          <div class="floating-chip chip-a"><span class="accent">GET</span> /api/tasks</div>
+          <div class="floating-chip chip-b">discord.bot.ready()</div>
+          <div class="floating-chip chip-c">deploy --clean</div>
+          <div class="terminal-card">
+            <div class="terminal-top">
+              <div class="terminal-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+              <span>jacky@portfolio:~/work</span>
+            </div>
+            <code>
+              <span class="code-line"><span class="muted">$</span> npm run solve-task</span>
+              <span class="code-line"><span class="cyan">const</span> scope = <span class="muted">"small and clear"</span>;</span>
+              <span class="code-line"><span class="cyan">await</span> buildBackend({ api, bot, automation });</span>
+              <span class="code-line"><span class="muted">// output:</span> tested files + delivery notes</span>
+              <span class="code-line"><span class="cyan">status</span>: shipped_without_bloat</span>
+            </code>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Services</p>
+            <h2>Clean technical work for practical tasks.</h2>
+          </div>
+          <p class="section-copy">Each service is designed for small fixed-price jobs, quick fixes, and focused builds with a clear handoff.</p>
+        </div>
+
+        <div class="card-grid">
+          <article class="card transition-all cursor-pointer">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 17 10 5l4 14 2-8 4 6"/><path d="M3 21h18"/></svg></div>
+            <h3>Backend Systems</h3>
+            <p>Express.js endpoints, MongoDB features, API routes, data cleanup, and backend bug fixes.</p>
+          </article>
+          <article class="card transition-all cursor-pointer">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="M7.5 4.21 12 6.81l4.5-2.6"/><path d="M7.5 19.79V14.6L3 12"/><path d="M21 12l-4.5 2.6v5.19"/><path d="M3.27 6.96 12 12.01l8.73-5.05"/><path d="M12 22.08V12"/></svg></div>
+            <h3>Automation Scripts</h3>
+            <p>Small scripts that process files, call APIs, export clean data, and reduce manual work.</p>
+          </article>
+          <article class="card transition-all cursor-pointer">
+            <div class="icon-box" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2"/><path d="M20 14h2"/><path d="M15 13v2"/><path d="M9 13v2"/></svg></div>
+            <h3>Discord Bots</h3>
+            <p>Slash commands, webhook setup, bot fixes, role checks, and API-connected Discord tools.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container split-layout">
+        <aside class="bio-panel">
+          <p class="eyebrow">Bio + stack</p>
+          <h2>Backend-first work for practical tasks.</h2>
+          <p>I focus on the parts clients can verify: working endpoints, successful API calls, clean files, stable bots, and readable delivery notes.</p>
+          <div class="stack-cloud" aria-label="Tech stack">
+            <span class="badge">JavaScript</span>
+            <span class="badge">Node.js</span>
+            <span class="badge">Express.js</span>
+            <span class="badge">MongoDB</span>
+            <span class="badge">Discord.js</span>
+            <span class="badge">REST APIs</span>
+            <span class="badge">Webhooks</span>
+            <span class="badge">Python</span>
+          </div>
+        </aside>
+
+        <div>
+          <div class="section-head" style="grid-template-columns: 1fr; margin-bottom: 18px;">
+            <div>
+              <p class="eyebrow">Projects gallery</p>
+              <h2>Selected build patterns.</h2>
+            </div>
+          </div>
+
+          <div class="project-list">
+            <article class="project-card transition-all cursor-pointer">
+              <div>
+                <span class="project-index">01 / Sample Project</span>
+                <h3>Discord Command System</h3>
+                <p>A Discord.js command layer with permissions, API calls, database writes, and clean error responses.</p>
+                <div class="stack-cloud"><span class="badge">Discord.js</span><span class="badge">Node.js</span><span class="badge">MongoDB</span></div>
+              </div>
+              <a class="project-link transition-all cursor-pointer" href="#contact">Request similar</a>
+            </article>
+            <article class="project-card transition-all cursor-pointer">
+              <div>
+                <span class="project-index">02 / Sample Project</span>
+                <h3>Express API Fix Pack</h3>
+                <p>Small backend routes for CRUD flows, token checks, request validation, and reliable JSON responses.</p>
+                <div class="stack-cloud"><span class="badge">Express.js</span><span class="badge">REST API</span><span class="badge">JavaScript</span></div>
+              </div>
+              <a class="project-link transition-all cursor-pointer" href="#contact">Request similar</a>
+            </article>
+            <article class="project-card transition-all cursor-pointer">
+              <div>
+                <span class="project-index">03 / Sample Project</span>
+                <h3>API + File Automation Tool</h3>
+                <p>A script that pulls data, transforms records, and exports a clean result for upload or delivery.</p>
+                <div class="stack-cloud"><span class="badge">Python</span><span class="badge">APIs</span><span class="badge">Automation</span></div>
+              </div>
+              <a class="project-link transition-all cursor-pointer" href="#contact">Request similar</a>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section class="section" id="pricing">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Pricing</p>
+            <h2>Start small. Ship something real.</h2>
+          </div>
+          <p class="section-copy">Starter pricing for small Upwork-style tasks. Final scope depends on access, inputs, and expected output.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card transition-all cursor-pointer">
+            <h3>Quick Fix</h3>
+            <p>A small bug, setup issue, or config check with one clear success condition.</p>
+            <div class="price"><span>Starts at</span> $10</div>
+            <ul class="feature-list">
+              <li>One issue only</li>
+              <li>Short diagnosis + fix</li>
+              <li>Test notes included</li>
+            </ul>
+            <a class="button transition-all cursor-pointer" href="#contact">Start fix</a>
+          </article>
+
+          <article class="price-card featured transition-all cursor-pointer">
+            <h3>Small Automation</h3>
+            <p>A focused script, bot action, or webhook flow that saves repeat manual work.</p>
+            <div class="price"><span>Starts at</span> $25</div>
+            <ul class="feature-list">
+              <li>One script or feature</li>
+              <li>Input/output tested</li>
+              <li>Delivery notes included</li>
+            </ul>
+            <a class="button button-primary transition-all cursor-pointer" href="#contact">Choose this</a>
+          </article>
+
+          <article class="price-card transition-all cursor-pointer">
+            <h3>Backend Integration</h3>
+            <p>For API flows, backend endpoints, or database-backed work that needs custom scope.</p>
+            <div class="price custom-price">Custom<span> quote</span></div>
+            <ul class="feature-list">
+              <li>Scope reviewed first</li>
+              <li>API/backend workflow</li>
+              <li>Clean handoff package</li>
+            </ul>
+            <a class="button transition-all cursor-pointer" href="#contact">Plan build</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container final-cta">
+        <div class="final-cta-inner">
+          <div>
+            <p class="eyebrow">Talk to me</p>
+            <h2>Have a small backend, bot, or automation task?</h2>
+            <p class="section-copy">Send the goal, sample input, expected output, access requirements, and deadline. I will confirm if I can complete it quickly. Discord: .jackyson.</p>
+          </div>
+          <div class="cta-row">
+            <a class="button button-primary transition-all cursor-pointer" href="https://www.upwork.com/freelancers/~01c9d5c8758d896349?mp_source=share" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 2 11 13"/><path d="m22 2-7 20-4-9-9-4 20-7Z"/></svg>
+              Contact on Upwork
+            </a>
+            <a class="button transition-all cursor-pointer" href="https://discord.com/users/777305854931370026" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+              Message on Discord
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <a class="logo transition-all cursor-pointer" href="#top" aria-label="Jacky Dev home">
+            <span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 9 4 12l4 3"/><path d="m16 9 4 3-4 3"/><path d="m14 5-4 14"/></svg></span>
+            JACKY.DEV
+          </a>
+          <div class="social-row" aria-label="Social media links">
+            <a class="social-link transition-all cursor-pointer" href="https://www.upwork.com/freelancers/~01c9d5c8758d896349?mp_source=share" target="_blank" rel="noopener noreferrer" aria-label="Upwork profile">
+              <svg viewBox="0 0 24 24"><path d="M10 6V5a2 2 0 0 1 2-2h0a2 2 0 0 1 2 2v1"/><path d="M4 7h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M4 12h16"/><path d="M9 12v2"/><path d="M15 12v2"/></svg>
+            </a>
+            <a class="social-link transition-all cursor-pointer" href="https://discord.com/users/777305854931370026" target="_blank" rel="noopener noreferrer" aria-label="Discord .jackyson">
+              <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+            </a>
+            <a class="social-link transition-all cursor-pointer" href="#contact" aria-label="Contact section">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16v16H4z"/><path d="m22 6-10 7L2 6"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Navigation</h3>
+          <div class="footer-links">
+            <a class="footer-link transition-all cursor-pointer" href="#features">Services</a>
+            <a class="footer-link transition-all cursor-pointer" href="#projects">Projects</a>
+            <a class="footer-link transition-all cursor-pointer" href="#pricing">Pricing</a>
+            <a class="footer-link transition-all cursor-pointer" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>SEO Links</h3>
+          <div class="footer-links">
+            <a class="footer-link transition-all cursor-pointer" href="#features">Backend Developer</a>
+            <a class="footer-link transition-all cursor-pointer" href="#projects">Backend Projects</a>
+            <a class="footer-link transition-all cursor-pointer" href="#projects">Discord Bot Developer</a>
+            <a class="footer-link transition-all cursor-pointer" href="#projects">API Automation</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Legal + Contact</h3>
+          <div class="footer-links">
+            <a class="footer-link transition-all cursor-pointer" href="#">Privacy Policy</a>
+            <a class="footer-link transition-all cursor-pointer" href="#">Terms of Use</a>
+            <a class="footer-link transition-all cursor-pointer" href="#contact">Contact</a>
+            <a class="footer-link transition-all cursor-pointer" href="https://discord.com/users/777305854931370026" target="_blank" rel="noopener noreferrer">Discord .jackyson</a>
+            <a class="footer-link transition-all cursor-pointer" href="https://www.upwork.com/freelancers/~01c9d5c8758d896349?mp_source=share" target="_blank" rel="noopener noreferrer">Upwork Profile</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>Copyright 2026 Jacky Dev. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
